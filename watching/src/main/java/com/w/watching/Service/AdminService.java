@@ -1,8 +1,8 @@
-package com.w.watching.DAO;
+package com.w.watching.Service;
 
 import com.w.watching.VO.MemberVO;
 
-public interface AdminDAO {
-	
+public interface AdminService {
+
 	public String adminlogin(MemberVO vo);
 }

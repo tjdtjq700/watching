@@ -3,7 +3,7 @@
 
 <mapper namespace="admin">
 	<!-- 관리자 로그인 체크 -->
-	<select id="adminlogin" resultType="admin">
+	<select id="login_Check" resultType="String">
 		SELECT *
 		FROM ADMIN
 		WHERE aid=#{aid} AND apw=#{apw} AND aname=#{aname}
