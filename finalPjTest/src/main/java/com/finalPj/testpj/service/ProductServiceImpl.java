@@ -49,27 +49,9 @@ public class ProductServiceImpl implements ProductService {
 		pdao.uphit(pCode);
 		
 	}
-
-	@Override
-	public void dataUpload(ProductDTO dto) {
-		pdao.dataUpload(dto);
-		
-	}
-
-	@Override
-	public void dataModify(ProductDTO dto) {
-		pdao.dataModify(dto);
-		
-	}
-
-	@Override
-	public void dataDelete(int pCode) {
-		pdao.dataDelete(pCode);
-		
-	}
-
 	@Override
 	public int getPcode(String pName) {
 		return pdao.getPcode(pName);
 	}
+
 }

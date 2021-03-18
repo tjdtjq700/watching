@@ -4,17 +4,17 @@
 	
 	<!-- admin 화면 리스트 출력 -->
 	<select id="list" resultType="com.finalPj.testpj.dto.ProductDTO">
-		select * from product order by pCode
+		select * from product order by pCode desc
 	</select>
 	
 	<!-- admin 상세페이지 여기서 수정버튼 누르면 수정되는걸로-->
 	<select id="view" resultType="com.finalPj.testpj.dto.ProductDTO">
-		select * from product where pCode=#{param1} <!--#{pCode} -->
+		select * from product where pcode=#{pCode}
 	</select>
 	
 	<insert id="upload">
-		insert into product (pCode, kCode, tCode, pName, aId, pUphit) 
-			values (product_SEQ.nextval, #{kCode}, #{tCode}, #{pName}, #{aId}, 0)	
+		insert into product (pCode, kCode, tCode, pName, aId, pUphit, pImg, pUploadDate) 
+			values (product_SEQ.nextval, #{kCode}, #{tCode}, #{pName}, #{aId}, 0, #{pImg}, sysdate)	
 	</insert>
 	
 	<update id="modify">
@@ -25,13 +25,24 @@
 	<delete id="delete">
 		delete from product where pCode=#{pCode}
 	</delete>
-	
-	<insert id="dataUpload">
-		insert into data (dName, dType, dUploadDate, pCode, kCode, tCode) 
-			values (#{dName}, #{dType}, sysdate, #{pCode}, #{kCode}, #{tCode})	
-	</insert>
-	
+	<!-- data table
+		<insert id="dataUpload">
+			insert into data (dName, dType, dUploadDate, pCode, kCode, tCode) 
+				values (#{dName}, #{dType}, sysdate, #{pCode}, #{kCode}, #{tCode})	
+		</insert>
+		
+		<delete id="dataDelete">
+			delete from data where pCode=#{pCode}
+		</delete>
+		<select id="getData" resultType="com.finalPj.testpj.dto.ProductDTO">
+			select * from data where pCode=#{pCode}
+		</select>
+	-->
 	<select id="getPcode" resultType="int">
 		select pCode from product where pName=#{pName}
-	</select>
+	</select>	
+	
+	<update id="upHit">
+		update product set pUphit = pUphit+1 where pCode=#{pCode}
+	</update>
 </mapper>
