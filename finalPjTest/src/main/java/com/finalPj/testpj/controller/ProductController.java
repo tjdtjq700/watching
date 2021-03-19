@@ -1,7 +1,10 @@
 package com.finalPj.testpj.controller;
 
 import java.io.File;
+<<<<<<< HEAD
 import java.util.UUID;
+=======
+>>>>>>> d5a29378ce99780a825098239b6633788a12b478
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -56,10 +59,15 @@ public class ProductController {
 	public String upload(@ModelAttribute ProductDTO dto, MultipartFile file) throws Exception{
 	
 		
+<<<<<<< HEAD
 		String originName = file.getOriginalFilename();
 		//파일명 중복방지를 위한 랜덤생성
 		UUID uuid = UUID.randomUUID();		
 		String pImg = uuid.toString()+"_"+originName;
+=======
+		String pImg = file.getOriginalFilename();
+		
+>>>>>>> d5a29378ce99780a825098239b6633788a12b478
 		//임시 디렉토리에 사진을 저장
 		File target = new File(uploadPath, pImg);
 		//위의 파일을 지정된 디렉토리로 복사
@@ -89,6 +97,7 @@ public class ProductController {
 	//modifyView에서 수정버튼 누르면 update되는 서비스
 	@RequestMapping("modify")
 	public String modify(@ModelAttribute ProductDTO dto, MultipartFile file) throws Exception {		
+<<<<<<< HEAD
 		//수정전 이미지 파일명 가져오기
 		int pCode=dto.getpCode();
 		ProductDTO bfDto = productService.view(pCode);
@@ -123,6 +132,20 @@ public class ProductController {
 		productService.modify(dto);
 		
 		return "redirect:/admin/view?pCode="+pCode;
+=======
+		String pImg = file.getOriginalFilename();
+		
+		//임시 디렉토리에 사진을 저장
+		File target = new File(uploadPath, pImg);
+		//위의 파일을 지정된 디렉토리로 복사
+		FileCopyUtils.copy(file.getBytes(), target);
+		//파일이름 지정
+		dto.setpImg(pImg);
+		
+		productService.modify(dto);
+		
+		return "redirect:/admin/view/{pCode}";
+>>>>>>> d5a29378ce99780a825098239b6633788a12b478
 	}
 	
 	//삭제는 list에서 삭제버튼 누르면 바로 실행
