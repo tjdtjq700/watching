@@ -13,18 +13,27 @@
 	</select>
 	
 	<insert id="upload">
+<<<<<<< HEAD
+		insert into product (pCode, kCode, tCode, pName, aId, pContent, pUphit, pImg, pUploadDate) 
+			values (product_SEQ.nextval, #{kCode}, #{tCode}, #{pName}, #{aId}, #{pContent}, 0, #{pImg}, sysdate)	
+=======
 		insert into product (pCode, kCode, tCode, pName, aId, pUphit, pImg, pUploadDate) 
 			values (product_SEQ.nextval, #{kCode}, #{tCode}, #{pName}, #{aId}, 0, #{pImg}, sysdate)	
+>>>>>>> d5a29378ce99780a825098239b6633788a12b478
 	</insert>
 	
 	<update id="modify">
-		update product set kCode=#{kCode}, tCode=#{tCode}, pName=#{pName}, aId=#{aId}
+		update product set kCode=#{kCode}, tCode=#{tCode}, pName=#{pName}, aId=#{aId},
+			pImg=#{pImg}, pUploadDate=sysdate, pContent=#{pContent}
 			where pCode=#{pCode}
 	</update>
 	
 	<delete id="delete">
 		delete from product where pCode=#{pCode}
 	</delete>
+<<<<<<< HEAD
+	
+=======
 	<!-- data table
 		<insert id="dataUpload">
 			insert into data (dName, dType, dUploadDate, pCode, kCode, tCode) 
@@ -38,6 +47,7 @@
 			select * from data where pCode=#{pCode}
 		</select>
 	-->
+>>>>>>> d5a29378ce99780a825098239b6633788a12b478
 	<select id="getPcode" resultType="int">
 		select pCode from product where pName=#{pName}
 	</select>	
