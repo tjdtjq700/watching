@@ -1,6 +1,6 @@
 package com.finalPj.testpj.dto;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class ProductDTO {
 	private int pCode;
@@ -9,16 +9,16 @@ public class ProductDTO {
 	private String pName;
 	private String aId;
 	private int pUphit;
+	private String pContent;
 	
-	//dName, dType, dUploadDate에 대한 DTO 추가
-	private String dName;
-	private String dType;
-	private Timestamp dUploadDate;
+	//product와 data 테이블 합침
+	private String pImg;
+	private Date pUploadDate;
 	
 	public ProductDTO() {}
-	
-	public ProductDTO(int pCode, String kCode, String tCode, String pName, String aId, int pUphit, String dName,
-			String dType, Timestamp dUploadDate) {
+
+	public ProductDTO(int pCode, String kCode, String tCode, String pName, String aId, int pUphit, String pContent,
+			String pImg, Date pUploadDate) {
 		super();
 		this.pCode = pCode;
 		this.kCode = kCode;
@@ -26,72 +26,90 @@ public class ProductDTO {
 		this.pName = pName;
 		this.aId = aId;
 		this.pUphit = pUphit;
-		this.dName = dName;
-		this.dType = dType;
-		this.dUploadDate = dUploadDate;
+		this.pContent = pContent;
+		this.pImg = pImg;
+		this.pUploadDate = pUploadDate;
 	}
-	
+
 	public int getpCode() {
 		return pCode;
 	}
+
 	public void setpCode(int pCode) {
 		this.pCode = pCode;
 	}
+
 	public String getkCode() {
 		return kCode;
 	}
+
 	public void setkCode(String kCode) {
 		this.kCode = kCode;
 	}
+
 	public String gettCode() {
 		return tCode;
 	}
+
 	public void settCode(String tCode) {
 		this.tCode = tCode;
 	}
+
 	public String getpName() {
 		return pName;
 	}
+
 	public void setpName(String pName) {
 		this.pName = pName;
 	}
+
 	public String getaId() {
 		return aId;
 	}
+
 	public void setaId(String aId) {
 		this.aId = aId;
 	}
+
 	public int getpUphit() {
 		return pUphit;
 	}
+
 	public void setpUphit(int pUphit) {
 		this.pUphit = pUphit;
 	}
-	public String getdName() {
-		return dName;
+
+	public String getpContent() {
+		return pContent;
 	}
-	public void setdName(String dName) {
-		this.dName = dName;
+
+	public void setpContent(String pContent) {
+		this.pContent = pContent;
 	}
-	public String getdType() {
-		return dType;
+
+	public String getpImg() {
+		return pImg;
 	}
-	public void setdType(String dType) {
-		this.dType = dType;
+
+	public void setpImg(String pImg) {
+		this.pImg = pImg;
 	}
-	public Timestamp getdUploadDate() {
-		return dUploadDate;
+
+	public Date getpUploadDate() {
+		return pUploadDate;
 	}
-	public void setdUploadDate(Timestamp dUploadDate) {
-		this.dUploadDate = dUploadDate;
+
+	public void setpUploadDate(Date pUploadDate) {
+		this.pUploadDate = pUploadDate;
 	}
 
 	@Override
 	public String toString() {
 		return "ProductDTO [pCode=" + pCode + ", kCode=" + kCode + ", tCode=" + tCode + ", pName=" + pName + ", aId="
-				+ aId + ", pUphit=" + pUphit + ", dName=" + dName + ", dType=" + dType + ", dUploadDate=" + dUploadDate
-				+ "]";
+				+ aId + ", pUphit=" + pUphit + ", pContent=" + pContent + ", pImg=" + pImg + ", pUploadDate="
+				+ pUploadDate + "]";
 	}
+
 	
 
 }

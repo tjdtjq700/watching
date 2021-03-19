@@ -53,26 +53,9 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public void dataUpload(ProductDTO dto) {
-		sqlSession.insert(namespace+".dataUpload", dto);
-		
-	}
-
-	@Override
-	public void dataModify(ProductDTO dto) {
-		sqlSession.update(namespace+".dataModify", dto);
-		
-	}
-
-	@Override
-	public void dataDelete(int pCode) {
-		sqlSession.delete(namespace+".dataDelete", pCode);
-		
-	}
-
-	@Override
 	public int getPcode(String pName) {
 		return sqlSession.selectOne(namespace+".getPcode", pName);
 	}
+
 
 }
