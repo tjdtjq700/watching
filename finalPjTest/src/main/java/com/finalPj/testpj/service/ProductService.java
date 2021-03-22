@@ -20,5 +20,13 @@ public interface ProductService {
 	public void uphit(int pCode);
 	
 	public int getPcode(String pName);
+<<<<<<< HEAD
+=======
+	//파일 crud
+//	public void dataUpload(ProductDTO dto);
+//	public void dataModify(ProductDTO dto);
+//	public void dataDelete(int pCode);
+//	public ProductDTO getData(int pCode);
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 
 }
