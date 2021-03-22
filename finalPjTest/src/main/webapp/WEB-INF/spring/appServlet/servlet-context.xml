@@ -42,13 +42,11 @@
 	
 	<!-- 파일업로드용 -->
 	<beans:bean id='uploadPath' class='java.lang.String'>
-		<beans:constructor-arg value="J:/final/finalPjTest/src/main/webapp/resources/productImg"/>
+		<beans:constructor-arg value="J:\myGit\finalPjTest\src\main\webapp\resources\productImg\"/>
 	</beans:bean>
 	
-	<resources mapping="/productImg/**" location="/resources/productImg/" />
-	
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<beans:property name="maxUploadSize" value="10485760"/>
+		<beans:property name="maxUploadSize" value="52428800"/>
 	</beans:bean>
 	<!--디렉토리 확인 -->
 </beans:beans>
