@@ -10,6 +10,9 @@
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <title>작품 업로드</title>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 <style>
 	.tc{
 		text-align:left;
@@ -22,8 +25,11 @@
 	.w120{width:120px;}
 	.w100{width:100px;}	
 </style>
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> d5a29378ce99780a825098239b6633788a12b478
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 </head>
 <body>
 
@@ -32,6 +38,9 @@
 	<hr>
 	<form action="/admin/upload" method="post" enctype="multipart/form-data"> <fieldset>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 	<div class="board">
 		<div class="row">
 			<span class="menu w100">관리자Id</span>
@@ -80,13 +89,19 @@
 		<div class="row">
 			<span class="menu w100">썸네일</span>
  			<span class="content w500">
+<<<<<<< HEAD
+ 				<input type="file" name="imgFile" id="imgInput" onchange="readURL(this);" />
+=======
  				<input type="file" name="file" id="imgInput" onchange="readURL(this);" />
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
  			</span>
 		</div>
 		<div class="row">
 			<span class="menu w100">썸네일보기</span>
  			<span class="content w500">
  				<img id="selectImg" src="#"/>
+<<<<<<< HEAD
+=======
 =======
 	
 	<table> 
@@ -135,6 +150,7 @@
 			<td>				
 				<img id="selectImg" src="#"/>
 >>>>>>> d5a29378ce99780a825098239b6633788a12b478
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 				<script type="text/javascript">
 					function readURL(input){
 						if(input.files && input.files[0]){
@@ -148,10 +164,39 @@
 				</script>
 				<p/>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 				<%=request.getRealPath("/") %>
  			</span>
 		</div>
 		<div class="row">
+<<<<<<< HEAD
+			<span class="menu w100">Vod</span>
+ 			<span class="content w500">
+ 				<input type="file" name="vodFile" id="vodInput" onchange="readVodURL(this);"/> 				
+ 			</span>
+		</div>
+		<div class="row">
+			<span class="menu w100">&nbsp;</span>
+ 			<span class="content w500">
+ 				<video id="selectVod" src="#"/>
+				<script type="text/javascript">
+					function readVodURL(input){
+						if(input.files && input.files[0]){
+							var reader = new FileReader();
+							reader.onload = function(e){
+								$('#selectVod').attr('src', e.target.result).width(200);
+							}
+							reader.readAsDataURL(input.files[0]);
+						}
+					}
+				</script>
+ 			</span>
+		</div>
+		<div class="row">
+=======
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 			<span class="content w100"><input type="submit" value="완료"></span>
  			<span class="content w100"><input type="button" onclick="location.href='list'" value="목록보기"></span>
 		</div>

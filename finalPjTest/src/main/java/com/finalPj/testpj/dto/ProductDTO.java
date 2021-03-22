@@ -14,6 +14,10 @@ public class ProductDTO {
 	//product와 data 테이블 합침
 	private String pImg;
 <<<<<<< HEAD
+	private String pVod;
+=======
+<<<<<<< HEAD
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 	private Date pUploadDate;
 	
 	public ProductDTO() {}
@@ -23,11 +27,16 @@ public class ProductDTO {
 =======
 	private Timestamp pUploadDate;
 	
+<<<<<<< HEAD
+	public ProductDTO(int pCode, String kCode, String tCode, String pName, String aId, int pUphit, String pContent,
+			String pImg, String pVod, Date pUploadDate) {
+=======
 	public ProductDTO() {}
 
 	public ProductDTO(int pCode, String kCode, String tCode, String pName, String aId, int pUphit, String pImg,
 			Timestamp pUploadDate) {
 >>>>>>> d5a29378ce99780a825098239b6633788a12b478
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 		super();
 		this.pCode = pCode;
 		this.kCode = kCode;
@@ -37,9 +46,15 @@ public class ProductDTO {
 		this.pUphit = pUphit;
 <<<<<<< HEAD
 		this.pContent = pContent;
+		this.pImg = pImg;
+		this.pVod = pVod;
+=======
+<<<<<<< HEAD
+		this.pContent = pContent;
 =======
 >>>>>>> d5a29378ce99780a825098239b6633788a12b478
 		this.pImg = pImg;
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 		this.pUploadDate = pUploadDate;
 	}
 
@@ -92,6 +107,9 @@ public class ProductDTO {
 	}
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 	public String getpContent() {
 		return pContent;
 	}
@@ -100,8 +118,11 @@ public class ProductDTO {
 		this.pContent = pContent;
 	}
 
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> d5a29378ce99780a825098239b6633788a12b478
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 	public String getpImg() {
 		return pImg;
 	}
@@ -110,6 +131,24 @@ public class ProductDTO {
 		this.pImg = pImg;
 	}
 
+<<<<<<< HEAD
+	public String getpVod() {
+		return pVod;
+	}
+
+	public void setpVod(String pVod) {
+		this.pVod = pVod;
+	}
+
+	public Date getpUploadDate() {
+		return pUploadDate;
+	}
+
+	public void setpUploadDate(Date pUploadDate) {
+		this.pUploadDate = pUploadDate;
+	}
+	
+=======
 <<<<<<< HEAD
 	public Date getpUploadDate() {
 		return pUploadDate;
@@ -134,6 +173,7 @@ public class ProductDTO {
 				+ pUploadDate + "]";
 	}
 
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 	
 =======
 				+ aId + ", pUphit=" + pUphit + ", pImg=" + pImg + ", pUploadDate=" + pUploadDate + "]";

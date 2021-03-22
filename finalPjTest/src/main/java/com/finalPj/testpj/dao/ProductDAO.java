@@ -22,11 +22,14 @@ public interface ProductDAO {
 	public int getPcode(String pName);
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 //	//파일용 메소드 작성
 //	public void dataUpload(ProductDTO dto);
 //	public void dataModify(ProductDTO dto);
 //	public void dataDelete(int pCode);
 //	public ProductDTO getData(int pCode);
 >>>>>>> d5a29378ce99780a825098239b6633788a12b478
+>>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 
 }
