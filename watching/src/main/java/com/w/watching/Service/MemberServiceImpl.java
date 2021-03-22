@@ -2,9 +2,12 @@ package com.w.watching.Service;
 
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Service;
+
 import com.w.watching.DAO.MemberDAO;
 import com.w.watching.DTO.MemberDTO;
 
+@Service
 public class MemberServiceImpl implements MemberService {
 
 	@Inject

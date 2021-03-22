@@ -1,8 +1,9 @@
-package com.w.watching.DTO;
+package com.w.watching.VO;
 
 import java.sql.Date;
 
-public class MemberDTO {
+public class MemberVO {
+	
 	public String mid;
 	public long mcode;
 	public String mpw;
@@ -11,7 +12,7 @@ public class MemberDTO {
 	public long mscode;
 	public String mname;
 	
-	public MemberDTO() {}
+	public MemberVO() {}
 
 	public String getMid() {
 		return mid;
@@ -71,10 +72,9 @@ public class MemberDTO {
 
 	@Override
 	public String toString() {
-		return "MemberDTO [mid=" + mid + ", mcode=" + mcode + ", mpw=" + mpw + ", mmemsdate=" + mmemsdate + ", mstate="
+		return "MemberVO [mid=" + mid + ", mcode=" + mcode + ", mpw=" + mpw + ", mmemsdate=" + mmemsdate + ", mstate="
 				+ mstate + ", mscode=" + mscode + ", mname=" + mname + "]";
 	}
 	
 	
-		
 }
