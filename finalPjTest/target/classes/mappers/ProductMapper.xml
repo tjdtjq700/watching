@@ -4,7 +4,33 @@
 	
 	<!-- admin 화면 리스트 출력 -->
 	<select id="list" resultType="com.finalPj.testpj.dto.ProductDTO">
-		select * from product order by pCode desc
+		select * from (
+			select rownum rn, A.* from (
+				select * from product 
+					<trim prefix="where" prefixOverrides="AND |OR">
+						<if test='searchType=="pName" and keyword != null and keyword !="" '>
+							and pName like '%'||#{keyword}||'%'
+						</if>
+						<if test='searchType=="pContent" and keyword != null and keyword !="" '>
+							and pContent like '%'||#{keyword}||'%'
+						</if>
+					</trim>
+			order by pCode desc	) A		 
+			) where rn between #{start} and #{end}
+	</select>
+	
+	<select id="cntList" parameterType="hashmap" resultType="int">
+		select count(*) from product
+		<trim prefix="where" prefixOverrides="AND |OR">
+			<if test='keyword != null and keyword !="" '>
+				<if test='searchType=="pName"'>
+					and pName like '%'||#{keyword}||'%'
+				</if>
+				<if test='searchType=="pContent"'>
+					and pContent like '%'||#{keyword}||'%'
+				</if>
+			</if>
+		</trim>
 	</select>
 	
 	<!-- admin 상세페이지 여기서 수정버튼 누르면 수정되는걸로-->
@@ -13,53 +39,20 @@
 	</select>
 	
 	<insert id="upload">
-<<<<<<< HEAD
 		insert into product (pCode, kCode, tCode, pName, aId, pContent, pUphit, pImg, pVod, pUploadDate) 
 			values (product_SEQ.nextval, #{kCode}, #{tCode}, #{pName}, #{aId}, #{pContent}, 0, #{pImg}, #{pVod},sysdate)	
-=======
-<<<<<<< HEAD
-		insert into product (pCode, kCode, tCode, pName, aId, pContent, pUphit, pImg, pUploadDate) 
-			values (product_SEQ.nextval, #{kCode}, #{tCode}, #{pName}, #{aId}, #{pContent}, 0, #{pImg}, sysdate)	
-=======
-		insert into product (pCode, kCode, tCode, pName, aId, pUphit, pImg, pUploadDate) 
-			values (product_SEQ.nextval, #{kCode}, #{tCode}, #{pName}, #{aId}, 0, #{pImg}, sysdate)	
->>>>>>> d5a29378ce99780a825098239b6633788a12b478
->>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 	</insert>
 	
 	<update id="modify">
 		update product set kCode=#{kCode}, tCode=#{tCode}, pName=#{pName}, aId=#{aId},
-<<<<<<< HEAD
 			pImg=#{pImg}, pVod=#{pVod}, pUploadDate=sysdate, pContent=#{pContent}
-=======
-			pImg=#{pImg}, pUploadDate=sysdate, pContent=#{pContent}
->>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 			where pCode=#{pCode}
 	</update>
 	
 	<delete id="delete">
 		delete from product where pCode=#{pCode}
 	</delete>
-<<<<<<< HEAD
 	
-<<<<<<< HEAD
-=======
-=======
-	<!-- data table
-		<insert id="dataUpload">
-			insert into data (dName, dType, dUploadDate, pCode, kCode, tCode) 
-				values (#{dName}, #{dType}, sysdate, #{pCode}, #{kCode}, #{tCode})	
-		</insert>
-		
-		<delete id="dataDelete">
-			delete from data where pCode=#{pCode}
-		</delete>
-		<select id="getData" resultType="com.finalPj.testpj.dto.ProductDTO">
-			select * from data where pCode=#{pCode}
-		</select>
-	-->
->>>>>>> d5a29378ce99780a825098239b6633788a12b478
->>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 	<select id="getPcode" resultType="int">
 		select pCode from product where pName=#{pName}
 	</select>	

@@ -3,9 +3,11 @@ package com.w.watching.DAO;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import com.w.watching.DTO.MemberDTO;
 
+@Repository
 public class MemberDAOImpl implements MemberDAO {
 
 	@Inject
