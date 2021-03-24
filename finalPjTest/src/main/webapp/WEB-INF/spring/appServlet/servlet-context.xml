@@ -45,10 +45,6 @@
 		<beans:constructor-arg value="J:\myGit\finalPjTest\src\main\webapp\resources\productImg\"/>
 	</beans:bean>
 	
-<<<<<<< HEAD
-=======
-	
->>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="52428800"/>
 	</beans:bean>

@@ -9,18 +9,31 @@
 <meta charset="UTF-8">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <title>list</title>
-
+</head>
 <style>
 	ul li{list-style:none;}
 	.fl{float:left;}
+	.fr{float:right;}
 	.tc{text-align:center;}
+	.tl{text-align:left;}
 	.board{width:1800px;}
+	.m5{margin:5px;}
 	.w70{width:70px;}
 	.w500{width:500px;}
 	.w120{width:120px;}
 	.w300{width:300px;}	
 </style>
-</head>
+<script>
+	$(document).on('click','#btnSearch',function(e){
+		e.preventDefault();
+		var url="${targetURL}";
+		url = url+"?searchType="+$('#searchType').val();
+		url = url+"&keyword="+$('#keyword').val();
+		url = url+"&nowPage="+$('#nowPage').val();
+		location.href = url;
+		console.log(url);
+	});
+</script>
 <body>
 <form action="/admin/delete" >
  <div class="list">
@@ -46,5 +59,54 @@
 	</ul>
  </div>
 </form>
+<div class="search tc">
+	<div class="tc fl m5">
+		<select name="searchType" id="searchType">
+			<option value="pName">제목</option>
+			<option value="pContent">내용</option>
+		</select>
+	</div>
+	<div class="tc fl m5">
+		<input type="text" name="keyword" id="keyword">
+		<input type="hidden" name="nowPage" id="nowPage" value="${paging.nowPage}">
+	</div>
+	<div class="tc fl m5">
+		<c:url var="targetURL" value="/admin/list"></c:url>
+		<button name="btnSearch" id="btnSearch">검색</button>
+	</div>
+</div>
+ <div class="tc">
+ 	<c:if test="${paging.startPage != 1}">
+ 		<a href="/admin/list?nowPage=${paging.startPage -1}">&lt;</a>
+ 	</c:if>
+ 	<c:if test="${search.keyword == null }">
+	 	<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
+	 		<c:choose>
+	 			<c:when test="${p == paging.nowPage}">
+	 				<b>${p}</b>	
+	 			</c:when>
+	 			<c:when test="${p != paging.nowPage}">
+	 				<a href="/admin/list?nowPage=${p}">${p}</a>
+	 			</c:when>
+	 		</c:choose>
+	 	</c:forEach>
+ 	</c:if>
+ 	<c:if test="${search.keyword != null }">
+	 	<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
+	 		<c:choose>
+	 			<c:when test="${p == paging.nowPage}">
+	 				<b>${p}</b>	
+	 			</c:when>
+	 			<c:when test="${p != paging.nowPage}">
+	 				<a href="/admin/list?searchType=${search.searchType}&keyword=${search.keyword}&nowPage=${p}">${p}</a>
+	 			</c:when>
+	 		</c:choose>
+	 	</c:forEach>
+ 	</c:if>
+ 	<c:if test="${paging.startPage != paging.lastPage}">
+ 		<a href="/admin/list?nowPage=${paging.startPage +1}">&gt;</a>
+ 	</c:if>
+ </div>
+
 </body>
 </html>

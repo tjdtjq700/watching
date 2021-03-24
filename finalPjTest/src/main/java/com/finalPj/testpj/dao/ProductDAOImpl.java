@@ -1,5 +1,6 @@
 package com.finalPj.testpj.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -7,6 +8,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.finalPj.testpj.common.PagingVO;
+import com.finalPj.testpj.common.SearchVO;
 import com.finalPj.testpj.dto.ProductDTO;
 
 @Repository
@@ -17,9 +20,9 @@ public class ProductDAOImpl implements ProductDAO {
 	private static String namespace="com.finalPj.testpj.productMapper"; //
 
 	@Override
-	public List<ProductDTO> list() {
+	public List<ProductDTO> list(SearchVO vo) {
 		
-		return sqlSession.selectList(namespace+".list");
+		return sqlSession.selectList(namespace+".list", vo);
 	}
 
 	@Override
@@ -56,30 +59,10 @@ public class ProductDAOImpl implements ProductDAO {
 	public int getPcode(String pName) {
 		return sqlSession.selectOne(namespace+".getPcode", pName);
 	}
-//	@Override
-//	public void dataUpload(ProductDTO dto) {
-//		sqlSession.insert(namespace+".dataUpload", dto);
-//		
-//	}
-//
-//	@Override
-//	public void dataModify(ProductDTO dto) {
-//		sqlSession.update(namespace+".dataModify", dto);
-//		
-//	}
-//
-//	@Override
-//	public void dataDelete(int pCode) {
-//		sqlSession.delete(namespace+".dataDelete", pCode);
-//		
-//	}
-//
-//
-//	@Override
-//	public ProductDTO getData(int pCode) {
-//		return sqlSession.selectOne(namespace+".getData", pCode);
-//	}
 
-
+	@Override
+	public int cntList(HashMap<String, String> searchMap) {
+		return sqlSession.selectOne(namespace+".cntList", searchMap);
+	}
 
 }

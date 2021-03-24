@@ -1,13 +1,15 @@
 package com.finalPj.testpj.service;
 
+import java.util.HashMap;
 import java.util.List;
 
+import com.finalPj.testpj.common.SearchVO;
 import com.finalPj.testpj.dto.ProductDTO;
 
 
 public interface ProductService {
 	
-	public List<ProductDTO> list();
+	public List<ProductDTO> list(SearchVO vo);
 	//상세페이지
 	public ProductDTO view(int pCode);
 	
@@ -20,13 +22,7 @@ public interface ProductService {
 	public void uphit(int pCode);
 	
 	public int getPcode(String pName);
-<<<<<<< HEAD
-=======
-	//파일 crud
-//	public void dataUpload(ProductDTO dto);
-//	public void dataModify(ProductDTO dto);
-//	public void dataDelete(int pCode);
-//	public ProductDTO getData(int pCode);
->>>>>>> ebb2f93d062771b420bfdc42de4a88fa24be8695
+	
+	public int cntList(HashMap<String, String> searchMap);
 
 }

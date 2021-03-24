@@ -1,11 +1,13 @@
 package com.finalPj.testpj.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.finalPj.testpj.common.SearchVO;
 import com.finalPj.testpj.dao.ProductDAO;
 import com.finalPj.testpj.dto.ProductDTO;
 
@@ -16,8 +18,8 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDAO pdao;
 
 	@Override
-	public List<ProductDTO> list() {
-		return pdao.list();
+	public List<ProductDTO> list(SearchVO vo) {
+		return pdao.list(vo);
 	}
 
 	@Override
@@ -52,6 +54,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public int getPcode(String pName) {
 		return pdao.getPcode(pName);
+	}
+
+	@Override
+	public int cntList(HashMap<String, String> searchMap) {
+		return pdao.cntList(searchMap);
 	}
 
 }
