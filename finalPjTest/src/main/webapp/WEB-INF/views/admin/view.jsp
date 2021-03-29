@@ -20,6 +20,7 @@
 		width:800px;
 		position: relative;
 		display:table;
+		
 	}
 	.row{
 		display:table-row;
