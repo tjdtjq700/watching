@@ -22,18 +22,16 @@
 		padding:10px;
 		}
 	.board{
-		width:900px;
+		width:800px;
 		position: relative;
 		display:table;
-		margin:auto;
 	}
 	.row{
 		display:table-row;
-		position:relative;
-    	padding: 0 auto;
 		margin:5px;
 	}
-	.b_menu{
+	.menu{
+		width:100px;
 		margin:10px;
 		display:table-cell;
 		vertical-align:middle;
@@ -58,9 +56,6 @@
 		border-radius:1px;
 		font-weight:bold;
 	}
-	fieldset{
-		width:900px;
-	}
 	.w70{width:70px;}
 	.w500{width:500px;}
 	.w200{width:200px;}
@@ -68,30 +63,29 @@
 	.w100{width:100px;}	
 </style>
 </head>
-	<%@include file="../template/header.jsp"%>
 <body>
-	
-	<h1 style="margin:0 0 0 30px;">작품 수정</h1>
+
+		<h1>작품 수정</h1>
 	
 	<hr>
 	<form action="/admin/modify" method="post" enctype="multipart/form-data"> 
 	<div class ="board">
 	<fieldset>
 		<div class="row">
-			<span class="b_menu">관리자Id</span>
+			<span class="menu">관리자Id</span>
  			<span class="content">
  				<input type="text" name="aId" size="50" value="${view.aId}" class="form-control">
 				<input type="hidden" name="pCode" value="${view.pCode}">
  			</span>
 		</div>
 		<div class="row">
-			<span class="b_menu">제목</span>
+			<span class="menu">제목</span>
  			<span class="content">
  				<input type="text" name="pName" required="required" value="${view.pName}" class="form-control">
  			</span>
 		</div>
 		<div class="row">
-			<span class="b_menu">분류</span>
+			<span class="menu">분류</span>
  			<span class="content">
  				<select name="kCode" id="kCode" class="form-control-select">
 					<option value="국내드라마" ${view.kCode == '국내드라마' ? "selected='selected'" : ' '}>국내드라마</option>
@@ -102,7 +96,7 @@
  			</span>
 		</div>
 		<div class="row">
-			<span class="b_menu">상세장르</span>
+			<span class="menu">상세장르</span>
  			<span class="content">
  				<select name="tCode" id="tCode" class="form-control-select">
 					<option value="로맨스/멜로" ${view.tCode == '로맨스/멜로' ? "selected='selected'" : ' '}>로맨스/멜로</option>
@@ -117,19 +111,19 @@
  			</span>
 		</div>
 		<div class="row">
-			<span class="b_menu">내용</span>
+			<span class="menu">내용</span>
  			<span class="content">
  				<textarea rows="10" name="pContent" required="required" class="form-control">${view.pContent}</textarea>
  			</span>
 		</div>
 		<div class="row">
-			<span class="b_menu">썸네일</span>
+			<span class="menu">썸네일</span>
  			<span class="content">
  				<input type="file" name="imgFile" id="imgInput" onchange="readURL(this);"/>
  			</span>
 		</div>
 		<div class="row">
-			<span class="b_menu">썸네일보기</span>
+			<span class="menu">썸네일보기</span>
  			<span class="content">
  				<img id="selectImg" src="/resources/ProductImg/${view.pImg}"/>
 				<script type="text/javascript">
@@ -148,13 +142,13 @@
  			</span>
 		</div>
 		<div class="row">
-			<span class="b_menu">Vod</span>
+			<span class="menu">Vod</span>
  			<span class="content">
  				<input type="file" name="vodFile" id="vodInput" onchange="readVodURL(this);"/> 	
  			</span>
 		</div>
 		<div class="row">
-			<span class="b_menu">영상 미리보기</span>
+			<span class="menu">&nbsp;</span>
  			<span class="content">
  				<video id="selectVod" src="/resources/ProductImg/${view.pVod}"/>
 				<script type="text/javascript">
@@ -178,5 +172,4 @@
 	</div>
 	</form>
 </body>
-	<%@include file="/WEB-INF/views/bottom.jsp"%>
 </html>
