@@ -133,7 +133,7 @@ a, a:link, a:visited {
           </label>
         </div>
         <button id="login_btn" class="btn btn-lg btn-danger btn-block" type="submit">로그인</button>
-        <button id="join_btn" class="btn btn-lg btn-danger btn-block" onclick="location.href='/member/join'">회원가입</button>
+        <button id="join_btn" class="btn btn-lg btn-danger btn-block" onclick="location.href='/member/joinPage'">회원가입</button>
       </form>
       
 		</div>
