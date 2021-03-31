@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.watching.dto.ProductDTO" %>
+<%@ page import="com.watching.dto.MemberDTO" %>
 <%@ page import="com.watching.service.CategoryService" %>
 <%@ page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="org.apache.ibatis.session.SqlSession"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>메인 (로그인 후)</title>
 <style>
 ul li {
@@ -15,6 +18,12 @@ margin:5px;
 }
 h4 {
 margin:10px;
+}
+
+a, a:link, a:visited {
+  color: white;
+  text-decoration: none;
+  algin: center;
 }
 
 * {box-sizing: border-box;}
@@ -66,17 +75,28 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+
 </style>
 </head>
 <body>
 
-<%@include file="top.jsp"%>
+<%@include file="top.jsp"%>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
 <c:set var="ddl" value="${dms_dramalist}"/>
 <c:set var="adl" value="${abr_dramalist}"/>
 <c:set var="dfl" value="${dms_filmlist}"/>
 <c:set var="afl" value="${abr_filmlist}"/>
 
+<%
+	MemberDTO dto = (MemberDTO)session.getAttribute("mId");
+	if(dto==null){
+		%>
+		<script>
+		alert('Watching 로그인 후 이용해주세요');
+		document.location.href="/";
+		</script>
+		<%} else {
+%>
 	<h4>신작</h4>
 	
 	<div class="slideshow-container">
@@ -86,11 +106,11 @@ img {vertical-align: middle;}
 		</div>
 		
 		<div class="mySlides fade">
-		  <img src="/resources/ProductImg/국내드라마_나빌레라_메인_포스터.JPG" style="width:1800px; height:400px;">
+		  <img src="/resources/ProductImg/국내드라마_나빌레라_메인_포스터2.JPG" style="width:1800px; height:400px;">
 		</div>
 		
 		<div class="mySlides fade">
-		  <img src="/resources/ProductImg/국내드라마_펜트하우스2_메인_포스터.JPG" style="width:1800px; height:400px;">
+		  <img src="/resources/ProductImg/국내드라마_펜트하우스2_메인_포스터2.JPG" style="width:1800px; height:400px;">
 		</div>
 		
 		</div>
@@ -166,9 +186,13 @@ img {vertical-align: middle;}
 		</li>
 		</c:forEach>
 	</ul>				
+	
 
 
 <%@include file="bottom.jsp"%>
+
+<%} %> 
+
 
 </body>
 </html>
