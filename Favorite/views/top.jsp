@@ -75,7 +75,7 @@ body {
 <body>
 
 	<div class="navbar">
-	  <a href="/">Watching</a>
+	  <a href="/main_after">Watching</a>
 	  
 	  <div class="dropdown">
 	    <button class="dropbtn">드라마 
