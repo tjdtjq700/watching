@@ -97,7 +97,7 @@ public class MemberController {
 	 @RequestMapping("/logout") 
 	 public String memberLogout(HttpSession session) throws Exception { 
 		 service.memberLogout(session); 
-		 return "redirect:/member/loginPage"; 
+		 return "redirect:/main_before"; 
 	 }
 	 
 	 // 회원 정보 찾기 페이지 

@@ -83,14 +83,14 @@ body {
 </style>
 
 <%
-	String mid=(String)session.getAttribute("mid");
+	//String mid=(String)session.getAttribute("mid");
 %>
 
 </head>
 <body>
 
 	<div class="navbar">
-	 	<a  class="logo" href="/" ><img src="<spring:url value ='/resources/Logo/wchlogo.png'/>" height="50px"></a>
+	 	<a  class="logo" href="/main_after" ><img src="<spring:url value ='/resources/Logo/logo_red.JPG'/>" height="50px"></a>
 	  		  
 	  <div class="dropdown">
 	    <button class="dropbtn">드라마 

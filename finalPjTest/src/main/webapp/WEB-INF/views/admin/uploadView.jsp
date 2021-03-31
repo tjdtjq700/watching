@@ -141,6 +141,7 @@
 						}
 					}
 				</script>
+				<%=request.getRealPath("/") %>
  			</span>
 		</div>
 		<div class="row">
