@@ -30,15 +30,15 @@ a, a:link, a:visited {
 	
 	<c:set var="ddl" value="${dms_dramalist}"/>
 	<c:set var="fav" value="${favlist}"/>
+	
 	<ul class="dms_dramalist_ul">
 		<c:forEach items="${dms_dramalist}" var="ddl" varStatus="status">
 		<li class="dms_dramalist_li">
-			<form name="form1" method="post" action="${path}/favorite/addfav">
-				<input type="hidden" name="pCode" value="${fdto.pCode}">
+			<form name="form1" method="post" action="/favorite/addfav">
+				<input type="hidden" name="pCode" value="${ddl.pCode}">
 					<div class="pImg"><a href=""><img src="/resources/ProductImg/${ddl.pImg}" style="width:250px; height:250px;"></a></div>
 					<div class="pName"><a href="">${ddl.pName}</a></div>
 				<input type="submit" value="찜추가">
-				<a class="addfav_btn" href="${path}/favorite/addfav?pCode=${fav[status.index].pCode}">찜추가</a>
 			</form>
 		</li>
 		</c:forEach>
