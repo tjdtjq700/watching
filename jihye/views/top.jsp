@@ -86,14 +86,12 @@ body {
   float:right;
 }
 </style>
-<%
-	String mid=(String)session.getAttribute("mId");
-%>
+
 </head>
 <body>
 
 	<div class="navbar">
-	 	<a  class="logo" href="main_after" ><img src="<spring:url value ='/resources/Logo/logo_red.JPG'/>" width="150px" height="50"></a>
+	 	<a  class="logo" href="/main_after" ><img src="<spring:url value ='/resources/Logo/logo_red.JPG'/>" width="150px" height="50"></a>
 	  		  
 	  <div class="dropdown">
 	    <button class="dropbtn">드라마 
@@ -121,18 +119,17 @@ body {
 	  
 	  <div class="rightmenu">
 		  <div class="dropdown">
-		    <button class="dropbtn">계정 
+		    <button class="dropbtn">${mId} 님
 		      <i class="fa fa-caret-down"></i>
 		    </button>
 		    <div class="dropdown-content">
-		      <a href="">회원정보</a>
-		      <a href="">로그아웃</a>
+		      <a href="/member/detail">회원정보</a>
+		      <a href="/member/logout">로그아웃</a>
 		    </div>
+		    
 		  </div>
-		  
-		  <a class="menu" href="/member/login">로그인</a>
-		 
 		</div>
+		
 	</div>
 
 	
