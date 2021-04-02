@@ -32,17 +32,18 @@ a, a:link, a:visited {
 	<ul class="abr_dramalist_ul">
 		<c:forEach items="${abr_dramalist}" var="adl">
 		<li class="abr_dramalist_li">
-			<div class="pImg"><a href=""><img src="/resources/ProductImg/${adl.pImg}" style="width:250px; height:250px;"></a></div>
-			<div class="pName"><a href="">${adl.pName}</a></div>
-			<p class="addfav"> 
-			<button type="button" class="addfav_btn">찜추가</button>
-			</p>
+			<form name="form1" method="post" action="/favorite/addfav">
+				<input type="hidden" name="pCode" value="${adl.pCode}">
+					<div class="pImg"><a href=""><img src="/resources/ProductImg/${adl.pImg}" style="width:250px; height:250px;"></a></div>
+					<div class="pName"><a href="">${adl.pName}</a></div>
+				<input type="submit" value="찜추가">
+			</form>
 		</li>
 		
 		</c:forEach>
 	</ul>		
 	
 <%@include file="bottom.jsp"%>
-
+	
 </body>
 </html>
