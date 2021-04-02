@@ -30,7 +30,7 @@ a, a:link, a:visited {
 	
 	<c:set var="ddl" value="${dms_dramalist}"/>
 	<c:set var="fav" value="${favlist}"/>
-	
+
 	<ul class="dms_dramalist_ul">
 		<c:forEach items="${dms_dramalist}" var="ddl" varStatus="status">
 		<li class="dms_dramalist_li">
