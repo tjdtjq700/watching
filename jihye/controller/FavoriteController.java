@@ -55,7 +55,7 @@ public class FavoriteController {
 
 		return "redirect:/favorite/favlist";
 	}
-		
+	
 	// 찜삭제
 	@RequestMapping("deletefav")
 	public String deletefav(@RequestParam int fCode) throws Exception {
