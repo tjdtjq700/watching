@@ -34,20 +34,26 @@ a, a:link, a:visited {
 <%@include file="../top.jsp"%>
 
 	<h3>찜한 콘텐츠</h3>
-	
-	<ul class="favlist_ul">
-		<c:forEach items="${favlist}" var="fav">
-		<li class="favlist_li">
-			<div class="productImg"><img src="/resources/ProductImg/${fav.pImg}" style="width:250px; height:250px;"/></div>
-			<div class="productName"><a href="영상보기">${fav.pName}</a></div> 
-			<a class="deletefav_btn" href="${path}/favorite/deletefav?fCode=${fav.fCode}">찜해제</a>
-		</li>
-		</c:forEach>
-	</ul>
-
+	<c:choose>
+		<c:when test="${map.count == 0}">
+			마음에 뜨는 작품을 찜해서 언제든 즐겨보세요
+		</c:when>
 		
+		<c:otherwise>
+			<ul class="favlist_ul">
+				<c:forEach items="${map.favlist}" var="fav">
+				<li class="favlist_li">
+					<div class="productImg"><img src="/resources/ProductImg/${fav.pImg}" style="width:250px; height:250px;"/></div>
+					<div class="productName"><a href="영상보기">${fav.pName}</a></div> 
+					<a class="deletefav_btn" href="${path}/favorite/deletefav?fCode=${fav.fCode}">찜해제</a>
+				</li>
+				</c:forEach>
+			</ul>
+		
+		</c:otherwise>
+	</c:choose>
 	
 <%@include file="../bottom.jsp"%>
-
+	
 </body>
 </html>
