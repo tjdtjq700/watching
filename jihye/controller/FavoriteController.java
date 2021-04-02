@@ -25,31 +25,37 @@ public class FavoriteController {
 	
 	// 찜리스트
 	@RequestMapping(value="/favlist")
-	public String favlist(Model model, HttpSession session) throws Exception {
+	public ModelAndView favlist(ModelAndView mav, HttpSession session) throws Exception {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
 		
 		String mId = (String) session.getAttribute("mId");
-		//Integer fCode = (Integer) session.getAttribute("fCode");
 		
-		List<FavoriteDTO> favlist = null;
-		favlist = favsvc.favlist(mId);
+		List<FavoriteDTO> favlist = favsvc.favlist(mId);
 		
-		model.addAttribute("favlist", favlist);
-			
-		return "favorite/favlist";
+		map.put("favlist", favlist);
 		
+		mav.setViewName("favorite/favlist");
+		mav.addObject("map", map);
+	
+		return mav;
+
 	}
 	
 	// 찜추가
-	@RequestMapping(value="/addfav", method=RequestMethod.POST)
-	public String addfav(@ModelAttribute FavoriteDTO fdto, HttpSession session) throws Exception {
-
-		String mId = (String) session.getAttribute("mId");
-		fdto.setmId(mId);
-		favsvc.addfav(fdto);
+	@RequestMapping("addfav")
+	public String addfav(@ModelAttribute FavoriteDTO fdto, Model model, HttpSession session) throws Exception {
 		
-		return "favorite/favlist";
+	    String mId = (String)session.getAttribute("mId");
+	    
+	    model.addAttribute("mId", mId);
+	    
+	    fdto.setmId(mId);
+	    favsvc.addfav(fdto);
+
+		return "redirect:/favorite/favlist";
 	}
-	
+		
 	// 찜삭제
 	@RequestMapping("deletefav")
 	public String deletefav(@RequestParam int fCode) throws Exception {
