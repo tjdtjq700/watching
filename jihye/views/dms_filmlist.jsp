@@ -31,8 +31,8 @@ a, a:link, a:visited {
 	<ul class="dms_filmlist_ul">
 		<c:forEach items="${dms_filmlist}" var="dfl">
 		<li class="dms_filmlist_li">
-			<form method="post" action="${path}/favorite/addfav">
-				<input type="hidden" name="fdto" value="${fdto}">
+			<form name="form1" method="post" action="/favorite/addfav">
+				<input type="hidden" name="pCode" value="${dfl.pCode}">
 					<div class="pImg"><a href=""><img src="/resources/ProductImg/${dfl.pImg}" style="width:250px; height:250px;"></a></div>
 					<div class="pName"><a href="">${dfl.pName}</a></div>
 				<input type="submit" value="찜추가">
