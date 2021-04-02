@@ -30,7 +30,7 @@ a, a:link, a:visited {
 </head>
 <body>
 
-
+	
 <%@include file="../top.jsp"%>
 
 	<h3>찜한 콘텐츠</h3>
