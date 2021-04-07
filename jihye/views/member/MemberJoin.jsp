@@ -326,9 +326,9 @@ select {
 						</span><p/>
 						
 					<p>멤버십</p>
-					<label>Bronze<input type="radio" name="Bronze" value="msCode"></label>
-					<label>Silver<input type="radio" name="Silver" value="msCode"></label>
-					<label>Gold<input type="radio" name="Gold" value="msCode"></label>
+					<input type="radio" id= "b" name="msCode" value="Bronze"><label for="b">Bronze</label>&nbsp;
+					<input type="radio" id= "s" name="msCode" value="Silver"><label for="s">Silver</label>&nbsp;
+					<input type="radio" id= "g" name="msCode" value="Gold"><label for="g">Gold</label><p/>
 
 
 				
