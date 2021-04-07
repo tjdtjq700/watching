@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.watching.dto.ProductDTO" %>
 <%@ page import="com.watching.dto.MemberDTO" %>
 <%@ page import="com.watching.service.CategoryService" %>
 <%@ page import="java.util.List"%>
@@ -101,6 +100,18 @@ img {vertical-align: middle;}
 <c:set var="adl" value="${abr_dramalist}"/>
 <c:set var="dfl" value="${dms_filmlist}"/>
 <c:set var="afl" value="${abr_filmlist}"/>
+	
+<%
+	MemberDTO dto = (MemberDTO)session.getAttribute("dto");
+	String aId = (String)session.getAttribute("aId");
+	if(dto == null && aId == null) {
+		%>
+		<script>
+		alert("Watching 로그인 후 이용해주세요");
+		document.location.href="/";
+		</script>
+	<% } else {
+%>
 
 	<div id="container">
 	<h4>신작</h4>
@@ -194,7 +205,8 @@ img {vertical-align: middle;}
 	</div>
 	
 	</div>
-
+	
+	<%} %>
 
 </main>>
 <%@include file="./template/bottom.jsp"%>
