@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select> 
 	
 	<insert id="memberJoin"> 
-		insert into MEMBER (mId, mCode, mPw, mName) values (#{mId}, MEMBER_SEQ.nextval, #{mPw}, #{mName})
+		insert into MEMBER (mId, mCode, mPw, mName, msCode, mMemsDate, mState) values (#{mId}, MEMBER_SEQ.nextval, #{mPw}, #{mName}, #{msCode}, sysdate, 'Joined')
 	</insert> 
 	
 	<select id="memberDetail" resultType="com.watching.dto.MemberDTO"> 
