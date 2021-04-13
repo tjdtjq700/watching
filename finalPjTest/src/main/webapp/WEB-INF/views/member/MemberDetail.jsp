@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<head>
 <meta charset="UTF-8">
-<title>Member Detail</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/top.jsp" />
+
+	<jsp:include page="/WEB-INF/views/template/header.jsp" />
 	<br>
 	<div style="float: none; margin: 0 auto;">
 		<h1 align="center">Member Detail</h1>
@@ -24,5 +26,6 @@
 			onclick="location.href='/member/delete?mid=${userDetail.mid}'">탈퇴</button>
 		<button type="button" onclick="location.href='/board/list'">뒤로</button>
 	</div>
+
 </body>
 </html>
