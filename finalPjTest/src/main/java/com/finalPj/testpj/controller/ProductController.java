@@ -34,6 +34,8 @@ public class ProductController {
 	@Inject
 	ProductService productService;
 	
+	
+	
 	//기능 upload(insert),list,delete,update(modify),uphit, detailView
 	
 	//리스트 화면 출력
@@ -41,7 +43,8 @@ public class ProductController {
 	public String list(Model model, SearchVO vo,
 				@RequestParam(value="nowPage", required=false)String nowPage,
 				@RequestParam(value="searchType", required=false)String searchType,
-				@RequestParam(value="keyword", required=false)String keyword) throws Exception{
+				@RequestParam(value="keyword", required=false)String keyword,
+				HttpServletRequest request) throws Exception{
 		//페이징
 		int cntPerPage=10;
 		
@@ -56,18 +59,25 @@ public class ProductController {
 		vo = new SearchVO(total, Integer.parseInt(nowPage), cntPerPage);
 		vo.setSearchType(searchType);
 		vo.setKeyword(keyword);
-		System.out.println(vo);
+		
+		//세션유지
+		HttpSession session = request.getSession();
+		String aid = (String)session.getAttribute("aid");
 		
 		model.addAttribute("search", vo);
 		model.addAttribute("paging", vo);
 		model.addAttribute("dtos", productService.list(vo));
+		model.addAttribute("aid", aid);
 		
 		return "/admin/list";
 	}
 	
 	//업로드 화면 출력, 리스트에서 업로드 버튼을 누르면 나오는 화면
 	@RequestMapping("uploadView")
-	public String uploadView(Model model) throws Exception{
+	public String uploadView(Model model, HttpServletRequest request) throws Exception{
+		HttpSession session = request.getSession();
+		model.addAttribute("aid", session.getAttribute("aid"));
+		
 		return "/admin/uploadView";
 	}
 	
@@ -112,8 +122,12 @@ public class ProductController {
 	}
 	//modifyView
 	@RequestMapping("modifyView")
-	public String modifyView(Model model, @RequestParam("pCode")int pCode) throws Exception{
+	public String modifyView(Model model, @RequestParam("pCode")int pCode,
+			HttpServletRequest request) throws Exception{
+		HttpSession session = request.getSession();
+		
 		model.addAttribute("view", productService.view(pCode));
+		model.addAttribute("aId",session.getAttribute("aid"));
 		return "/admin/modifyView";
 	}
 	

@@ -50,14 +50,16 @@ public class MemberController {
 	// 회원가입
 	@RequestMapping("/join") 
 	public String memberJoin(@ModelAttribute MemberDTO dto) throws Exception {
-		 service.memberJoin(dto); return "redirect:/member/loginPage"; 
+		 service.memberJoin(dto); 
+		 
+		 return "redirect:/"; 
 	} 
 	
 	// 아이디 중복 검사
 	@RequestMapping("/idCheck")
-	public void idCheck(@RequestParam String mid, HttpServletResponse res) throws Exception {
+	public void idCheck(@RequestParam String mId, HttpServletResponse res) throws Exception {
 		int result = 0;
-		if (service.idCheck(mid) != 0) {
+		if (service.idCheck(mId) != 0) {
 			result = 1;
 		}
 		res.getWriter().print(result);
@@ -65,31 +67,34 @@ public class MemberController {
 
 	// 회원 정보
 	@RequestMapping("/detail") 
-	public ModelAndView memberDetail(@RequestParam String mid) throws Exception { ModelAndView mav = new
+	public ModelAndView memberDetail(@RequestParam String mId) throws Exception { 
+		
+		ModelAndView mav = new
 		 ModelAndView(); mav.setViewName("/member/MemberDetail");
-		 mav.addObject("memberDetail", service.memberDetail(mid)); 
+		 mav.addObject("memberDetail", service.memberDetail(mId)); 
 		 return mav; 
 		 }
 	
 	// 정보 수정 페이지 
 	@RequestMapping("/editPage") 
-	public ModelAndView memberEditPage(@RequestParam String mid) throws Exception { 
+	public ModelAndView memberEditPage(@RequestParam String mId) throws Exception { 
 		ModelAndView mav = new ModelAndView(); 
 		mav.setViewName("/member/MemberEdit");
-		mav.addObject("memberEdit", service.memberDetail(mid)); 
+		mav.addObject("memberEdit", service.memberDetail(mId)); 
 		return mav; 
 	} 
 	
 	 // 정보 수정
 	 @RequestMapping("/edit") public String memberEdit(@ModelAttribute MemberDTO dto)
-	 throws Exception { service.memberEdit(dto); return "redirect:/member/detail?mid="
-	 + dto.getMid();
+	 throws Exception { service.memberEdit(dto); 
+	 return "redirect:/member/detail?mid="
+	 + dto.getmId();
 	 } 
 	 
 	 // 회원 삭제 
 	 @RequestMapping("delete")
-	 public String memberDelete(@RequestParam String mid, HttpSession session) throws Exception {
-	 service.memberDelete(mid, session);
+	 public String memberDelete(@RequestParam String mId, HttpSession session) throws Exception {
+	 service.memberDelete(mId, session);
 	 return "redirect:/member/loginPage"; 
 	 } 
 	 
@@ -97,7 +102,7 @@ public class MemberController {
 	 @RequestMapping("/logout") 
 	 public String memberLogout(HttpSession session) throws Exception { 
 		 service.memberLogout(session); 
-		 return "redirect:/main_before"; 
+		 return "redirect:/"; 
 	 }
 	 
 	 // 회원 정보 찾기 페이지 
