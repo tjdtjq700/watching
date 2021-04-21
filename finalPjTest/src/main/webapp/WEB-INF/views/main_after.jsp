@@ -157,8 +157,8 @@ img {vertical-align: middle;}
 		<ul>
 		<c:forEach items="${dms_dramalist}" var="ddl" varStatus="status">
 		<li>
-			<div class="pImg"><a href="/vodplay"><img src="/resources/ProductImg/${ddl.pImg}" style="width:290px; height:200px;"></a></div>
-			<div class="pName"><a href="/vodplay">${ddl.pName}</a></div>
+			<div class="pImg"><a href="/vodplay?pCode=${ddl.pCode}"><img src="/resources/ProductImg/${ddl.pImg}" style="width:290px; height:200px;"></a></div>
+			<div class="pName"><a href="/vodplay?pCode=${ddl.pCode}">${ddl.pName}</a></div>
 		</li>
 		</c:forEach>
 	</ul>				
@@ -167,8 +167,8 @@ img {vertical-align: middle;}
 		<ul>
 		<c:forEach items="${abr_dramalist}" var="adl" varStatus="status">
 		<li>
-			<div class="pImg"><a href="/vodplay"><img src="/resources/ProductImg/${adl.pImg}" style="width:290px; height:200px;"></a></div>
-			<div class="pName"><a href="/vodplay">${adl.pName}</a></div>
+			<div class="pImg"><a href="/vodplay?pCode=${adl.pCode}"><img src="/resources/ProductImg/${adl.pImg}" style="width:290px; height:200px;"></a></div>
+			<div class="pName"><a href="/vodplay?pCode=${adl.pCode}">${adl.pName}</a></div>
 		</li>
 		</c:forEach>
 	</ul>				
@@ -177,8 +177,8 @@ img {vertical-align: middle;}
 		<ul>
 		<c:forEach items="${dms_filmlist}" var="dfl" varStatus="status">
 		<li>
-			<div class="pImg"><a href="/vodplay"><img src="/resources/ProductImg/${dfl.pImg}" style="width:290px; height:200px;"></a></div>
-			<div class="pName"><a href="/vodplay">${dfl.pName}</a></div>
+			<div class="pImg"><a href="/vodplay?pCode=${dfl.pCode}"><img src="/resources/ProductImg/${dfl.pImg}" style="width:290px; height:200px;"></a></div>
+			<div class="pName"><a href="/vodplay?pCode=${dfl.pCode}">${dfl.pName}</a></div>
 		</li>
 		</c:forEach>
 	</ul>				
@@ -188,8 +188,8 @@ img {vertical-align: middle;}
 		<ul>
 		<c:forEach items="${abr_filmlist}" var="afl" varStatus="status">
 		<li>
-			<div class="pImg"><a href="/vodplay"><img src="/resources/ProductImg/${afl.pImg}" style="width:290px; height:200px;"></a></div>
-			<div class="pName"><a href="/vodplay">${afl.pName}</a></div>
+			<div class="pImg"><a href="/vodplay?pCode=${afl.pCode}"><img src="/resources/ProductImg/${afl.pImg}" style="width:290px; height:200px;"></a></div>
+			<div class="pName"><a href="/vodplay?pCode=${afl.pCode}">${afl.pName}</a></div>
 		</li>
 		</c:forEach>
 	</ul>				

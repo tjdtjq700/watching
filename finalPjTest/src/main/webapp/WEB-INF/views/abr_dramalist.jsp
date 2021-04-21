@@ -41,8 +41,8 @@ a, a:link, a:visited {
 		<li class="abr_dramalist_li">
 			<form name="form1" method="post" action="/favorite/addfav">
 				<input type="hidden" name="pCode" value="${adl.pCode}">
-					<div class="pImg"><a href=""><img src="/resources/ProductImg/${adl.pImg}" style="width:250px; height:250px;"></a></div>
-					<div class="pName"><a href="">${adl.pName}</a></div>
+					<div class="pImg"><a href="/vodplay?pCode=${adl.pCode}"><img src="/resources/ProductImg/${adl.pImg}" style="width:250px; height:250px;"></a></div>
+					<div class="pName"><a href="/vodplay?pCode=${adl.pCode}">${adl.pName}</a></div>
 				<input type="submit" value="찜추가">
 			</form>
 		</li>

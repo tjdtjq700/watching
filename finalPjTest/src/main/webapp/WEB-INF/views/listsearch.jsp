@@ -55,8 +55,8 @@ a, a:link, a:visited {
 	<ul class="listsearch_ul">
 		<c:forEach items="${search}" var="search">
 		<li class="listsearch_li">
-			<div class="pImg"><a href=""><img src="/resources/ProductImg/${search.pImg}" style="width:250px; height:250px;"></a></div>
-			<div class="pName"><a href="">${search.pName}</a></div>
+			<div class="pImg"><a href="/vodplay?pCode=${search.pCode}"><img src="/resources/ProductImg/${search.pImg}" style="width:250px; height:250px;"></a></div>
+			<div class="pName"><a href="/vodplay?pCode=${search.pCode}">${search.pName}</a></div>
 		</li>
 		</c:forEach>
 	</ul>				

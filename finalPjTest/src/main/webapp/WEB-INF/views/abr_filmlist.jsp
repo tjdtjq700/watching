@@ -28,8 +28,8 @@ display:inline-block; margin:10px;
 		<li class="dms_filmlist_li">
 			<form method="post" action="${path}/favorite/addfav">
 				<input type="hidden" name="fdto" value="${fdto}">
-					<div class="pImg"><a href=""><img src="/resources/ProductImg/${afl.pImg}" style="width:250px; height:250px;"></a></div>
-					<div class="pName"><a href="">${afl.pName}</a></div>
+					<div class="pImg"><a href="/vodplay?pCode=${afl.pCode}"><img src="/resources/ProductImg/${afl.pImg}" style="width:250px; height:250px;"></a></div>
+					<div class="pName"><a href="/vodplay?pCode=${afl.pCode}">${afl.pName}</a></div>
 				<input type="submit" value="찜추가">
 			</form>
 		</li>
