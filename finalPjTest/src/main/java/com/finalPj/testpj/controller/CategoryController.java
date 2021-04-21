@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.finalPj.testpj.dto.ProductDTO;
 import com.finalPj.testpj.service.CategoryService;
+import com.finalPj.testpj.service.ProductService;
 
 @Controller
 @RequestMapping("/")
@@ -21,6 +22,9 @@ public class CategoryController {
 	
 	@Inject
 	CategoryService ctgService;
+	
+	@Inject
+	ProductService pService;
 
 	
 	@RequestMapping("/dms_dramalist")
@@ -58,18 +62,26 @@ public class CategoryController {
 	@RequestMapping(value="/listsearch", method=RequestMethod.GET)
 	public void search(Model model, @RequestParam(value="listkeyword", required=false, defaultValue="")String listkeyword) throws Exception {
 		
-		System.out.println(listkeyword);
+		//System.out.println(listkeyword);
 		
 		
 		List<ProductDTO> search = null; 
 		
 		search = ctgService.listsearch(listkeyword);
 		
-		for(ProductDTO i:search) {
-			System.out.println(i.getpName());
-		}
+//		for(ProductDTO i:search) {
+//			System.out.println(i.getpName());
+//		}
 		
 		model.addAttribute("search", search);
+	}
+	
+	@RequestMapping(value="/vodplay")
+	public String vodPlay(Model model, @RequestParam("pCode")int pCode) throws Exception {
+		
+		
+		model.addAttribute("view", pService.view(pCode));
+		return "/vodplay";
 	}
 
 }

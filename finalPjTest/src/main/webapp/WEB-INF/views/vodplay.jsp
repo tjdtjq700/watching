@@ -13,7 +13,7 @@
 
 
 		<video width=100% height=100% controls>
-			<source src="resources/ProductImg/${pVod}" type="video/mp4">
+			<source src="resources/ProductImg/${view.pVod}" type="video/mp4">
 		</video>
 
 </body>
