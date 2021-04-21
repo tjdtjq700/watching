@@ -90,7 +90,7 @@
  			</span>
 		</div>
 		<div class="row">
-			<span class="b_menu">제목Id</span>
+			<span class="b_menu">제목</span>
  			<span class="content">
  				<input type="text" name="pName" required="required" placeholder="제목" class="form-control">
  			</span>

@@ -118,16 +118,26 @@ html {
 		    <button class="dropbtn">
 		    <c:if test="${aId != null }">
 				${aId} 님
+			 </button>
+				<i class="fa fa-caret-down"></i>
+				 <div class="dropdown-content">
+				 	<a href="/admin/list">관리자모드</a>
+            		<a href="/admin/adminLogout">관리자 로그아웃</a>
+				 	
+            	</div>
 		    </c:if>
 		     <c:if test="${mId != null }">
 				${mId} 님
-		    </c:if>
+			 </button>
 				<i class="fa fa-caret-down"></i>
-		    </button>
-		    <div class="dropdown-content">
-		      <a href="/member/detail">회원정보</a>
-		      <a href="/member/logout">로그아웃</a>
-		    </div>
+				<div class="dropdown-content">
+					<a href="/member/detail">회원정보</a>
+            		<a href="/member/logout">로그아웃</a>
+            	</div>
+		    </c:if>				
+		   
+            
+          	</div>
 		    
 		  </div>
 		</div>

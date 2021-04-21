@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/views/template/top.jsp" />
+	<%@include file="/WEB-INF/views/template/top.jsp"%>
 	<h1 align="center">회원정보</h1>
 	
 	<table align="center" border="1">
@@ -42,6 +42,6 @@
 		
 	</table>
 
-	<jsp:include page="/WEB-INF/views/template/bottom.jsp" />
+	<%@include file="/WEB-INF/views/template/bottom.jsp"%>
 </body>
 </html>
