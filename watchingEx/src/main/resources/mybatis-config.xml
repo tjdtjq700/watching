@@ -4,5 +4,6 @@
 	<typeAliases>
 		<typeAlias alias="msDTO" type="com.watching.dto.MembershipDTO"/>
 		<typeAlias alias="pDTO" type="com.watching.dto.ProductDTO"/>
+		<typeAlias alias="pImgVO" type="com.watching.vo.ProductImgVO"/>
 	</typeAliases>
 </configuration>

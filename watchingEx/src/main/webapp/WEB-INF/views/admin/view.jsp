@@ -35,10 +35,11 @@
 		margin:5px;
 	}
 	.b_menu{
-		width:80px;
+		width:200px;
 		margin:10px;
 		display:table-cell;
 		vertical-align:middle;
+		text-align:center;
 	}
 	.content{
 		margin:10px;
@@ -95,7 +96,15 @@
  	</div>
  	<div class="row tc">
  		<span class="b_menu">업로드날짜</span>
- 		<span class="content"><fmt:formatDate value='${dtos.pUDate}' pattern="yyyy/MM/dd"/></span>
+ 		<span class="content"><fmt:formatDate value='${dto.pUDate}' pattern="yyyy/MM/dd"/></span>
+ 	</div>
+ 	<div class="row tc">
+ 		<span class="b_menu">썸네일</span>
+ 		<span class="content" style="height:200px;"><img src="/resources/ProductImg/${vo.pImg}" style="height:200px;"/></span>
+ 	</div>
+ 	<div class="row tc">
+ 		<span class="b_menu">동영상 미리보기</span>
+ 		<span class="content" style="height:200px;"><video src="/resources/ProductVod/${vo.pVod}" style="height:200px;" controls/></span>
  	</div>
 </fieldset>
  	<div class="caption">

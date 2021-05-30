@@ -114,7 +114,7 @@
 			</div>
 		</c:forEach>
 		<div class="btnLine">
-			<span style='margin:2px;'><button onclick="location.href='${pageContext.request.contextPath}/admin/uploadView'" class="d_btn">업로드</button></span>
+			<span style='margin:2px;'><button type="button" onclick="location.href='/admin/uploadView'" class="d_btn">업로드</button></span>
 			<span style='margin:2px;'><button type="submit" class="d_btn">삭제</button></span>
 			<span style='margin:2px;'><button type="reset" class="d_btn">초기화</button></span>
 		</div>

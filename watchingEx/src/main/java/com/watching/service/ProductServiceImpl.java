@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.watching.dao.ProductDAO;
 import com.watching.dto.ProductDTO;
+import com.watching.vo.ProductImgVO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -49,6 +50,40 @@ public class ProductServiceImpl implements ProductService {
 	public void uphit(int pId) throws Exception {
 		pdao.uphit(pId);
 
+	}
+
+	@Override
+	public void imgUpload(ProductImgVO vo) throws Exception {
+		pdao.imgUpload(vo);
+		
+	}
+
+	@Override
+	public void vodUpload(ProductImgVO vo) throws Exception {
+		pdao.vodUpload(vo);
+		
+	}
+
+	@Override
+	public int getPId(String pName) throws Exception {
+		return pdao.getPId(pName);
+	}
+
+	@Override
+	public ProductImgVO viewImg(int pId) throws Exception {
+		return pdao.viewImg(pId);
+	}
+
+	@Override
+	public void modifyImg(ProductImgVO vo) throws Exception {
+		pdao.modifyImg(vo);
+		
+	}
+
+	@Override
+	public void deleteImg(String pId) throws Exception {
+		pdao.deleteImg(pId);
+		
 	}
 
 }
