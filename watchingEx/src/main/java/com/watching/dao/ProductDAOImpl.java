@@ -1,5 +1,7 @@
 package com.watching.dao;
 
+import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.watching.dto.ProductDTO;
+import com.watching.vo.ProductImgVO;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
@@ -50,6 +53,40 @@ public class ProductDAOImpl implements ProductDAO {
 	public void uphit(int pId) throws Exception {
 		sqlSession.update(namespace+".uphit",pId);
 
+	}
+
+	@Override
+	public void imgUpload(ProductImgVO vo) throws Exception {
+		sqlSession.insert(namespace+".imgUpload",vo);
+		
+	}
+
+	@Override
+	public void vodUpload(ProductImgVO vo) throws Exception {
+		sqlSession.insert(namespace+".vodUpload",vo);
+		
+	}
+
+	@Override
+	public int getPId(String pName) throws Exception {
+		return sqlSession.selectOne(namespace+".getPId",pName);
+	}
+
+	@Override
+	public ProductImgVO viewImg(int pId) throws Exception {
+		return sqlSession.selectOne(namespace+".viewImg", pId);
+	}
+
+	@Override
+	public void modifyImg(ProductImgVO vo) throws Exception {
+		sqlSession.update(namespace+".modifyImg", vo);
+		
+	}
+
+	@Override
+	public void deleteImg(String pId) throws Exception {
+		sqlSession.delete(namespace+".deleteImg", pId);
+		
 	}
 
 }

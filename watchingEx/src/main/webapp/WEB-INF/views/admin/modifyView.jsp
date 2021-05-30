@@ -73,7 +73,7 @@
 	<h1 style="margin:0 0 0 30px;">작품 수정</h1>
 	
 	<hr>
-	<form action="/admin/modify" method="post"> 
+	<form action="${pageContext.request.contextPath}/admin/modify?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data"> 
 	<div class ="board">
 	<fieldset>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -114,6 +114,52 @@
 					<option value="드라마" ${dto.tId == '드라마' ? "selected='selected'" : ' '}>드라마</option>
 					<option value="다큐멘터리" ${dto.tId == '다큐멘터리' ? "selected='selected'" : ' '}>다큐멘터리</option>
 				</select>
+ 			</span>
+		</div>
+		<div class="row">
+			<span class="b_menu">썸네일</span>
+ 			<span class="content" style="height:200px;">
+ 				<input type="file" name="imgFile" id="imgInput" onchange="readURL(this);" />
+ 			</span>
+		</div>
+		<div class="row">
+			<span class="b_menu">썸네일보기</span>
+ 			<span class="content" style="height:200px;">
+ 				<img id="selectImg" src="/resources/ProductImg/${vo.pImg}" style="height:200px;"/>
+				<script type="text/javascript">
+					function readURL(input){
+						if(input.files && input.files[0]){
+							var reader = new FileReader();
+							reader.onload = function(e){
+								$('#selectImg').attr('src', e.target.result).height(200);
+							}
+							reader.readAsDataURL(input.files[0]);
+						}
+					}
+				</script>
+ 			</span>
+		</div>
+		<div class="row">
+			<span class="b_menu">Vod</span>
+ 			<span class="content">
+ 				<input type="file" name="vodFile" id="vodInput" onchange="readVodURL(this);"/> 				
+ 			</span>
+		</div>
+		<div class="row">
+			<span class="b_menu">영상 미리보기</span>
+ 			<span class="content">
+ 				<video id="selectVod" src="/resources/ProductVod/${vo.pVod}" style="height:200px;"></video>
+				<script type="text/javascript">
+					function readVodURL(input){
+						if(input.files && input.files[0]){
+							var reader = new FileReader();
+							reader.onload = function(e){
+								$('#selectVod').attr('src', e.target.result).height(200);
+							}
+							reader.readAsDataURL(input.files[0]);
+						}
+					}
+				</script>
  			</span>
 		</div>
 	</fieldset>

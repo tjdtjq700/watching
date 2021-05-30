@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>업로드화면</title>
 </head>
 <style>
+	body{
+		background-color:black;
+		line-height:2em;
+		color:#fff;
+		margin:30px;
+		}
+	.tc{
+		text-align:left;
+		padding:10px;
+		}
 	.board{
 		width:800px;
 		position: relative;
@@ -20,9 +31,11 @@
 		margin:5px;
 	}
 	.b_menu{
+		width:200px;
 		margin:10px;
 		display:table-cell;
 		vertical-align:middle;
+		text-align:center;
 	}
 	.content{
 		margin:10px;
@@ -35,7 +48,7 @@
 	
 </style>
 <body>
-<form action="${pageContext.request.contextPath}/admin/upload" method="POST"> 
+<form action="${pageContext.request.contextPath}/admin/upload?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data"> 
 	<div class="board">
 	<fieldset>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -70,6 +83,52 @@
 					<option value="드라마">드라마</option>
 					<option value="다큐멘터리">다큐멘터리</option>
 				</select>
+ 			</span>
+		</div>
+		<div class="row">
+			<span class="b_menu">썸네일</span>
+ 			<span class="content" style="height:200px;">
+ 				<input type="file" name="imgFile" id="imgInput" onchange="readURL(this);" />
+ 			</span>
+		</div>
+		<div class="row">
+			<span class="b_menu">썸네일보기</span>
+ 			<span class="content" style="height:200px;">
+ 				<img id="selectImg" src="#"/>
+				<script type="text/javascript">
+					function readURL(input){
+						if(input.files && input.files[0]){
+							var reader = new FileReader();
+							reader.onload = function(e){
+								$('#selectImg').attr('src', e.target.result).height(200);
+							}
+							reader.readAsDataURL(input.files[0]);
+						}
+					}
+				</script>
+ 			</span>
+		</div>
+		<div class="row">
+			<span class="b_menu">Vod</span>
+ 			<span class="content">
+ 				<input type="file" name="vodFile" id="vodInput" onchange="readVodURL(this);"/> 				
+ 			</span>
+		</div>
+		<div class="row">
+			<span class="b_menu">영상 미리보기</span>
+ 			<span class="content">
+ 				<video id="selectVod" src="#"></video>
+				<script type="text/javascript">
+					function readVodURL(input){
+						if(input.files && input.files[0]){
+							var reader = new FileReader();
+							reader.onload = function(e){
+								$('#selectVod').attr('src', e.target.result).height(200);
+							}
+							reader.readAsDataURL(input.files[0]);
+						}
+					}
+				</script>
  			</span>
 		</div>
 	</fieldset>
